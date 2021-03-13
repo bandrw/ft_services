@@ -6,6 +6,7 @@ RUN apk update && apk upgrade
 
 RUN apk add nginx openssl
 
+RUN rm -rf /var/www/localhost
 RUN mkdir /var/srcs
 COPY srcs/* /var/srcs/
 
