@@ -6,14 +6,13 @@ RUN apk update && apk upgrade
 
 RUN apk add openrc mysql mysql-client
 
-RUN mkdir /var/srcs
-COPY srcs/* /var/srcs/
+COPY srcs /var/srcs
 
-RUN openrc default
+RUN openrc && openrc default && touch /run/openrc/softlevel
 RUN /etc/init.d/mariadb setup
-# RUN /etc/init.d/mariadb start
-# RUN echo "CREATE DATABASE wordpress;" | mysql
-# RUN /etc/init.d/mariadb stop
+RUN /etc/init.d/mariadb start && \
+	echo "CREATE DATABASE wordpress;" | mysql && \
+	/etc/init.d/mariadb stop
 
 EXPOSE 3306
 

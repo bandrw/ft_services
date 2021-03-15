@@ -3,42 +3,36 @@ kind: Service
 metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: shared
-  name: nginx-svc
+  name: phpmyadmin-svc
 spec:
   selector:
-    app: nginx
+    app: phpmyadmin
   type: LoadBalancer
   loadBalancerIP: 192.168.99.100
   ports:
     - protocol: TCP
-      name: http
-      port: 80
-      targetPort: 80
-    - protocol: TCP
-      name: https
-      port: 443
-      targetPort: 443
+      port: 5000
+      targetPort: 5000
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: phpmyadmin-deployment
   labels:
-    app: nginx
+    app: phpmyadmin
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: phpmyadmin
   template:
     metadata:
       labels:
-        app: nginx
+        app: phpmyadmin
     spec:
       containers:
-        - name: nginx
-          image: nginx_image
+        - name: phpmyadmin
+          image: phpmyadmin_image
           imagePullPolicy: Never
           ports:
-          - containerPort: 80
-          - containerPort: 443
+          - containerPort: 5000

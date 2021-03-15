@@ -7,10 +7,10 @@ RUN apk update && apk upgrade
 RUN apk add nginx openssl
 
 RUN rm -rf /var/www/localhost
-RUN mkdir /var/srcs
-COPY srcs/* /var/srcs/
 
-RUN mv /var/srcs/config /etc/nginx/conf.d/default.conf
+COPY srcs /var/srcs
+
+RUN cp /var/srcs/config /etc/nginx/conf.d/default.conf
 
 RUN mkdir /etc/nginx/ssl
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj "/C=RU/ST=Tatarstan/L=Kazan/O=21 School/OU=Student/CN=kfriese" -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
