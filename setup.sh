@@ -9,6 +9,9 @@ minikube addons enable metallb
 # MetalLB
 kubectl apply -f srcs/metallb/metallb.yaml
 
+# Volume
+kubectl apply -f srcs/volume/volume.yaml
+
 # Nginx
 docker build -t nginx_image srcs/nginx
 kubectl apply -f srcs/nginx/nginx.yaml
