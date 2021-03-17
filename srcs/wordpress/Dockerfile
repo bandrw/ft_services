@@ -20,7 +20,7 @@ RUN mv wordpress /var/www/
 RUN mv /var/srcs/supervisor.conf /etc/supervisord.conf
 RUN mv /var/srcs/wp-config.php /var/www/wordpress/
 
-RUN mkdir /run/nginx
+RUN mkdir /run/nginx /run/php
 
 EXPOSE 5050
 

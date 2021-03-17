@@ -21,7 +21,7 @@ RUN mv /var/srcs/config.inc.php /var/www/phpmyadmin
 RUN mv /var/srcs/nginx.conf /etc/nginx/conf.d/default.conf
 RUN mv /var/srcs/supervisor.conf /etc/supervisord.conf
 
-RUN mkdir /run/nginx
+RUN mkdir /run/nginx /run/php
 
 EXPOSE 5000
 
