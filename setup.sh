@@ -27,3 +27,7 @@ kubectl apply -f srcs/phpmyadmin/phpmyadmin.yaml
 # WordPress
 docker build -t wordpress_image srcs/wordpress
 kubectl apply -f srcs/wordpress/wordpress.yaml
+
+# FTPS
+docker build -t ftps_image srcs/ftps
+kubectl apply -f srcs/ftps/ftps.yaml
