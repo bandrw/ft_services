@@ -12,10 +12,6 @@ kubectl apply -f srcs/metallb/metallb.yaml
 # Volume
 kubectl apply -f srcs/volume/volume.yaml
 
-# Nginx
-docker build -t nginx_image srcs/nginx
-kubectl apply -f srcs/nginx/nginx.yaml
-
 # MySQL
 docker build -t mysql_image srcs/mysql
 kubectl apply -f srcs/mysql/mysql.yaml
@@ -27,6 +23,10 @@ kubectl apply -f srcs/phpmyadmin/phpmyadmin.yaml
 # WordPress
 docker build -t wordpress_image srcs/wordpress
 kubectl apply -f srcs/wordpress/wordpress.yaml
+
+# Nginx
+docker build -t nginx_image srcs/nginx
+kubectl apply -f srcs/nginx/nginx.yaml
 
 # FTPS
 docker build -t ftps_image srcs/ftps
