@@ -6,4 +6,4 @@ influx -execute "CREATE USER kfriese WITH PASSWORD 'kfriese'"
 influx -execute "GRANT ALL ON grafana TO kfriese"
 kill -SIGTERM $(cat /var/run/influxd.pid)
 
-/usr/sbin/influxd
+/usr/bin/supervisord -c /etc/supervisord.conf
