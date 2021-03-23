@@ -13,7 +13,7 @@ RUN mv influxdb2-2.0.4-linux-amd64 /usr/share/influxdb
 
 WORKDIR	/usr/share/influxdb/
 
-RUN ./influx config create -o school_21 -u http://192.168.99.100:8086 -a
+# RUN ./influx config create -o school_21 -u http://192.168.99.100:8086 -a
 # RUN ./influx user create -n kfriese -p kfriese123 -o School_21
 
 EXPOSE 8086
