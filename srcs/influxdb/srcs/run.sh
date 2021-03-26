@@ -1,6 +1,6 @@
 #!/bin/sh
 
-influxd run -pidfile /var/run/influxd.pid &
+/usr/sbin/influxd run -config /etc/influxdb.conf -pidfile /var/run/influxd.pid &
 
 sleep 1
 influx -execute "CREATE DATABASE grafana"
