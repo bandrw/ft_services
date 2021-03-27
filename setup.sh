@@ -1,11 +1,12 @@
 #!/bin/bash
 
-minikube stop # tmp
-minikube delete # tmp
+minikube stop
+minikube delete
 minikube start --vm-driver=virtualbox
+minikube addons enable metallb
+
 eval $(minikube docker-env)
 # docker login -u kfriese -p kfriese123
-minikube addons enable metallb
 
 # MetalLB
 kubectl apply -f srcs/metallb/metallb.yaml
