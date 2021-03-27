@@ -13,6 +13,10 @@ kubectl apply -f srcs/metallb/metallb.yaml
 # Volume
 kubectl apply -f srcs/volume/volume.yaml
 
+# InfluxDB
+docker build -t influxdb_image srcs/influxdb
+kubectl apply -f srcs/influxdb/influxdb.yaml
+
 # MySQL
 docker build -t mysql_image srcs/mysql
 kubectl apply -f srcs/mysql/mysql.yaml
@@ -32,10 +36,6 @@ kubectl apply -f srcs/nginx/nginx.yaml
 # FTPS
 docker build -t ftps_image srcs/ftps
 kubectl apply -f srcs/ftps/ftps.yaml
-
-# InfluxDB
-docker build -t influxdb_image srcs/influxdb
-kubectl apply -f srcs/influxdb/influxdb.yaml
 
 # Grafana
 docker build -t grafana_image srcs/grafana

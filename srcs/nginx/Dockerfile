@@ -4,7 +4,7 @@ ENV TZ=Europe/Moscow
 
 RUN apk update && apk upgrade
 
-RUN apk add nginx openssl supervisor
+RUN apk add nginx openssl
 
 RUN rm -rf /var/www/localhost
 
@@ -17,14 +17,6 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj "/C=RU/ST=Tatarsta
 RUN mkdir /run/nginx
 RUN cp -r /var/srcs/test_webpage/* /var/www/
 
-# Telegraf
-RUN wget http://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/telegraf-1.17.0-r0.apk
-RUN apk add telegraf-1.17.0-r0.apk
-RUN rm -f telegraf-1.17.0-r0.apk
-RUN mv /var/srcs/telegraf.conf /etc/telegraf.conf
-
-RUN mv /var/srcs/supervisor.conf /etc/supervisord.conf
-
 EXPOSE 80 443
 
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+CMD ["nginx", "-g", "daemon off;"]

@@ -12,9 +12,9 @@ RUN wget https://dl.grafana.com/enterprise/release/grafana-enterprise-7.4.5.linu
 RUN tar xzf grafana-enterprise-7.4.5.linux-amd64.tar.gz
 RUN mv grafana-7.4.5 /usr/share/grafana
 RUN rm -f grafana-enterprise-7.4.5.linux-amd64.tar.gz
-RUN chmod 640 /var/srcs/grafana.db
-RUN mkdir -p /usr/share/grafana/data
-RUN mv /var/srcs/grafana.db /usr/share/grafana/data/
+# RUN chmod 640 /var/srcs/grafana.db
+# RUN mkdir -p /usr/share/grafana/data
+# RUN mv /var/srcs/grafana.db /usr/share/grafana/data/
 
 EXPOSE 3000
 
