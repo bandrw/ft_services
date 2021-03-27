@@ -43,9 +43,6 @@ spec:
       - name: influxdb-volume
         persistentVolumeClaim:
           claimName: influxdb-volume-claim
-      - name: dockersock
-        hostPath:
-          path: /var/run/docker.sock
       containers:
         - name: influxdb
           image: influxdb_image
@@ -55,5 +52,3 @@ spec:
           volumeMounts:
           - name: influxdb-volume
             mountPath: /var/lib/influxdb
-          - name: dockersock
-            mountPath: /var/run/docker.sock

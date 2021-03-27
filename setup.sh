@@ -4,6 +4,7 @@ minikube stop # tmp
 minikube delete # tmp
 minikube start --vm-driver=virtualbox
 eval $(minikube docker-env)
+# docker login -u kfriese -p kfriese123
 minikube addons enable metallb
 
 # MetalLB
